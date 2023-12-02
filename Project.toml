@@ -1,7 +1,7 @@
 name = "UnityPy"
 uuid = "0a7dd6ee-3a1d-45b1-9d68-9e094689bdc2"
 authors = ["Syx Pek and contributors"]
-version = "1.0.0-DEV"
+version = "0.1.0"
 
 [deps]
 CondaPkg = "992eb4ea-22a4-4c89-a5bb-47a3300528ab"
