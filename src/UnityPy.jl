@@ -5,7 +5,7 @@ module UnityPy
     const unityPy = Ref{Py}()
 
     function __init__()
-        global unityPy = PythonCall.pyimport("UnityPy")
+        global unityPy[] = PythonCall.pyimport("UnityPy")
     end
 
     export LoadTextBundle
