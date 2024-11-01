@@ -18,12 +18,12 @@ module UnityPy
             objTypeName == "TextAsset" || continue
 
             data = obj.read()
-            dataName = pyconvert(String, data.container)
+            dataName = pyconvert(String, data.m_Name)
             destLocation = joinpath(destPath, dataName)
             mkpath(dirname(destLocation))
             
             open(destLocation, "w") do io
-                contents = pyconvert(String, obj.read().text)
+                contents = pyconvert(String, data.m_Script)
                 print(io, contents)
             end
         end
