@@ -6,6 +6,7 @@ module UnityPy
 
     function __init__()
         global unityPy[] = PythonCall.pyimport("UnityPy")
+        (unityPy[]).config.FALLBACK_UNITY_VERSION = "2021.3.0f1"
     end
 
     export LoadTextBundle
@@ -18,7 +19,7 @@ module UnityPy
             objTypeName == "TextAsset" || continue
 
             data = obj.read()
-            dataName = pyconvert(String, data.m_Name)
+            dataName = pyconvert(String, obj.container)
             destLocation = joinpath(destPath, dataName)
             mkpath(dirname(destLocation))
             
