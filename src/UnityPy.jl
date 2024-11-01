@@ -2,16 +2,16 @@ module UnityPy
 
     using PythonCall
 
-    const unityPy = PythonCall.pynew()
+    const unityPy = Ref{Py}()
 
     function __init__()
-        PythonCall.pycopy!(unityPy, pyimport("UnityPy"))
+        global unityPy = PythonCall.pyimport("UnityPy")
     end
 
     export LoadTextBundle
 
     function LoadTextBundle(filePath, destPath)
-        pyBundle = unityPy.load(filePath)
+        pyBundle = (unityPy[]).load(filePath)
 
         for obj in pyBundle.objects
             objTypeName = pyconvert(String, obj.type.name)
